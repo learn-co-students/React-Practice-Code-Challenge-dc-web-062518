@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import SushiWallet from '../components/SushiWallet'
 
 const Table = (props) => {
 
@@ -11,18 +12,12 @@ const Table = (props) => {
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+        You have: ${props.wallet} remaining!
       </h1>
+      <SushiWallet addToWallet={props.addToWallet}/>
       <div className="table">
         <div className="stack">
-          {
-            /* 
-               renderPlates takes an array 
-               and renders an empty plate
-               for every element in the array
-            */
-            renderPlates([])
-          }
+          {renderPlates(props.eatenSushi)}
         </div>
       </div>
     </Fragment>
